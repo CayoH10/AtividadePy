@@ -1,118 +1,175 @@
-def soma_elementos(numeros): #Atividade 1
-    return sum(numeros)
+def soma_elementos(matriz): #Atividade 1
+    soma = 0
+    for linha in matriz:
+        for elemento in linha:
+            soma += elemento
+    return soma
+matriz = [
+    [1,2,3],
+    [4,5,6]
+]
+print(soma_elementos(matriz))
 
-numeros = [5,6,7,8,9]
-print(soma_elementos(numeros))
+def maior_elemento(matriz): #Atividade 2
+    return max(max(linha) for linha in matriz)
 
-def contar_pares(numeros): #Atividade 2
-    pares = []
-    for i in numeros:
-        if i % 2 == 0:
-            pares.append(i)
-    return pares
-numeros = [2,4,5,7,8]
-print(contar_pares(numeros))
+matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(maior_elemento(matriz))
 
-def maior_numero(numeros): #Atividade 3
-    return max(numeros)
+def soma_diagonal(matriz): #Atividade 3
+    soma = 0
+    for i in range(len(matriz)):
+        soma += matriz[i][i]
+    return soma
 
-numeros = [21, 54, 46, 87]
-print(maior_numero(numeros))
+matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(soma_diagonal(matriz))
 
-def quant_maiores(numeros): #Atividade 4
-    num = 20
-    valores = []
-    for i in numeros:
-        if i > num:
-            valores.append(i)
-    return valores
-numeros = [12,20,34,77,98,100]
-print(quant_maiores(numeros))
-
-def soma_pares(numeros): #Atividade 5
-    lista = []
-    for i in numeros:
-        if i % 2 == 0:
-            lista.append(i)
-    return sum(lista)
-
-numeros = [2, 4, 7, 9, 20]
-print(soma_pares(numeros))
-
-def existencia_num(numeros): #Atividade 6
-    num = 7
-    for i in numeros:
-        if i == num:
-            return True
-        
-numeros = [5, 7, 8, 9, 10]
-print(existencia_num(numeros))
-
-def inverter_lista(numeros): #Atividade 7
-    lista = []
-    for i in range(len(numeros) - 1, -1, -1):
-        lista.append(numeros[i])
-    return lista
-
-numeros = [1,2,3,4,5,6,7]
-print(inverter_lista(numeros))
-
-def contar_ocorrencias(numeros): #Atividade 8
-    lista = []
-    num = 4
-    for i in numeros:
-        if i == num:
-            lista.append(i)
-    return len(lista)
-
-numeros = [4,5,6,7,4,2,23,46,4,86]
-print(contar_ocorrencias(numeros))
-
-def contar_positivos(numeros): #Atividade 9
-    lista = []
-    for i in numeros:
-        if i >= 0:
-            lista.append(i)
-    return lista
-
-numeros = [-3, -2, -1, 0, 1, 2, 3]
-print(contar_positivos(numeros))
-
-def produto_num(numeros): #Atividade 10
-    resultado = 1
-    for i in numeros:
-        resultado *= i
+def transposta(matriz): #Atividade 4
+    linhas = len(matriz)
+    colunas = len(matriz[0])
+    resultado = []
+    for j in range(colunas):
+        nova_linha = []
+        for i in range(linhas):
+            nova_linha.append(matriz[i][j])
+        resultado.append(nova_linha)
     return resultado
 
-numeros = [3,4,6,2]
-print(produto_num(numeros))
+matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(transposta(matriz))
 
-def contar_vogais(s): #Atividade 11
-    vogais = "aeiouAEIOU"
+def multiplicar(matriz): #Atividade 5
+    k = 4
+    resultado = []
+    for linha in matriz:
+        nova_linha = []
+        for elemento in linha:
+            nova_linha.append(elemento * k)
+        resultado.append(nova_linha)
+    return resultado
+
+matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(multiplicar(matriz))
+
+def identidade(matriz): #Atividade 6
+    linhas = len(matriz)
+
+    for linha in matriz:
+        if len(matriz) != linhas:
+            return False
+        
+    for i in range(linhas):
+        for j in range(linhas):
+            if i == j:
+                if matriz[i][j] != 1:
+                    return False
+            else:
+                if matriz[i][j] != 0:
+                    return False
+    return True
+
+matriz = [
+    [1,0,0],
+    [0,1,0],
+    [0,0,1]
+]
+print(identidade(matriz))
+
+def soma_matrizes(A, B): #Atividade 7
+    m = len(A)
+    n = len(A[0])
+    resultado = []
+
+    for i in range(m):
+        linha = []
+        for j in range(n):
+            linha.append(A[i][j] + B[i][j])
+        resultado.append(linha)
+    return resultado
+
+matriz1 = [
+    [1,2,3],
+    [4,5,6]
+]
+
+matriz2 = [
+    [1,2,3],
+    [4,5,6]
+]
+print(soma_matrizes(matriz1, matriz2))
+
+def contar_maiores(matriz): #Atividade 8
+    x = 5
     contador = 0
-    for i in s:
-        if i in vogais:
-            contador += 1
+    for linha in matriz:
+        for elemento in linha:
+            if elemento > x:
+                contador += 1
     return contador
 
-s = "Ola, mundo!"
-print(contar_vogais(s))
+matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(contar_maiores(matriz))
 
-def contar_char(s): #Atividade 12
-    contador = 0
-    for i in s:
-        contador +=1
-    return contador
+def maior_soma(matriz): #Atividade 9
+    maior = float('-inf')
+    indice = -1
 
-s = "Paradigma!"
-print(contar_char(s))
+    for i, linha in enumerate(matriz):
+        soma = sum(linha)
+        if soma > maior:
+            maior = soma
+            indice = i
+    return indice
 
-def ocorrencias_char(s): #Atividade 14
-    char = "cC"
-    contador = 0
-    for i in s:
-        if i in char:
-            contador += 1
-    return contador
-s = "Claus"
-print(ocorrencias_char(s))
+matriz = [
+    [1,2,3],
+    [7,8,9],
+    [4,5,6]
+]
+print(maior_soma(matriz))
+
+def media_elementos(matriz): #Atividade 10
+    soma = 0
+    total = 0
+
+    for linha in matriz:
+        for elemento in linha:
+            soma += elemento
+            total += 1
+
+    if total == 0:
+        return 0
+    return soma / total
+
+matriz = [
+    [1,2,3],
+    [4,5,6]
+]
+print(media_elementos(matriz))
+
+
+
+
+        
+        
