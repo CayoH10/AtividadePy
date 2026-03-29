@@ -168,8 +168,77 @@ matriz = [
 ]
 print(media_elementos(matriz))
 
+def fatorial(n): #Atividade 11
+    if n == 0:
+        return 1
+    else:
+        return n * fatorial(n - 1)
+
+n = 5
+print(fatorial(n))
 
 
+def fibonacci(n): #Atividade 12
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+    
+n = 6
+print(fibonacci(n))
 
-        
-        
+def somaSequencia(n): #Atividade 13
+    if n == 1:
+        return 1
+    else:
+        return n + somaSequencia(n - 1)
+
+n = 4    
+print(somaSequencia(n))
+
+def potencia(b, e): #Atividade 14
+    if e == 0:
+        return 1
+    return b * potencia(b, e - 1)
+b = 5
+e = 2
+print(potencia(b, e))
+
+def conDigitos(n): #Atividade 15
+    if n < 10:
+        return 1
+    else:
+        return 1 + conDigitos(n // 10)
+
+n = 245
+print(conDigitos(n))
+
+def inverter(s): #Atividade 16
+    if len(s) <= 1:
+        return s
+    else:
+        return inverter(s[1:]) + s[0]
+
+print(inverter("Paradigma")) 
+
+def palindromo(s): #Atividade 17
+    s = s.lower()
+
+    if len(s) <= 1:
+        return True
+    if s[0] != s[-1]:
+        return False
+    return palindromo(s[1:-1])
+
+print(palindromo("Radar"))
+print(palindromo("Mundo"))
+
+def soma(n): #Atividade 18
+    if n < 10:
+        return n
+    return (n % 10) + soma(n // 10)
+
+n = 3476
+print(soma(n))
